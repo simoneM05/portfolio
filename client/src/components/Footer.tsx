@@ -1,4 +1,5 @@
 import SocialLinks from "./SocialLinks";
+import { userInfo } from '@/lib/env';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,11 +11,11 @@ function Footer() {
           <div className="mb-4 md:mb-0">
             <a href="#top" className="text-xl font-semibold text-white flex items-center">
               <span className="text-secondary mr-1">&lt;</span>
-              Simone Martino
+              {userInfo.name}
               <span className="text-secondary ml-1">/&gt;</span>
             </a>
             <p className="text-light-muted text-sm mt-2">
-              Backend Developer specializing in Node.js and TypeScript
+              {userInfo.jobTitle} specializing in Node.js and TypeScript
             </p>
           </div>
           
@@ -23,7 +24,7 @@ function Footer() {
         
         <div className="border-t border-dark-border mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-light-muted text-sm mb-4 md:mb-0">
-            © {currentYear} Simone Martino. All rights reserved.
+            © {currentYear} {userInfo.name}. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-sm text-light-muted hover:text-white transition-colors">

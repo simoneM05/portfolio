@@ -1,13 +1,14 @@
+import { userInfo } from '@/lib/env';
+
 interface SocialLinksProps {
   className?: string;
 }
 
 function SocialLinks({ className = '' }: SocialLinksProps) {
   const socialProfiles = [
-    { platform: 'github', url: 'https://github.com/', icon: 'fab fa-github' },
-    { platform: 'linkedin', url: 'https://linkedin.com/', icon: 'fab fa-linkedin' },
-    { platform: 'twitter', url: 'https://twitter.com/', icon: 'fab fa-twitter' },
-    { platform: 'medium', url: 'https://medium.com/', icon: 'fab fa-medium' },
+    { platform: 'github', url: userInfo.github, icon: 'fab fa-github' },
+    { platform: 'linkedin', url: userInfo.linkedin, icon: 'fab fa-linkedin' },
+    { platform: 'twitter', url: userInfo.twitter, icon: 'fab fa-twitter' },
   ];
   
   return (

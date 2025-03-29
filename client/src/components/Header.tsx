@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { userInfo } from "@/lib/env";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,7 +50,7 @@ function Header() {
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold text-white flex items-center">
             <span className="text-secondary mr-2">&lt;</span>
-            Simone Martino
+            {userInfo.name}
             <span className="text-secondary ml-2">/&gt;</span>
           </Link>
           

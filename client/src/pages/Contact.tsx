@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import ContactForm from '@/components/ContactForm';
 import SocialLinks from '@/components/SocialLinks';
+import { userInfo } from '@/lib/env';
 
 function Contact() {
   useEffect(() => {
@@ -30,10 +31,10 @@ function Contact() {
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
                   <a 
-                    href="mailto:john.doe@example.com" 
+                    href={`mailto:${userInfo.email}`} 
                     className="text-light-muted hover:text-secondary transition-colors"
                   >
-                    john.doe@example.com
+                    {userInfo.email}
                   </a>
                 </div>
               </div>
@@ -44,7 +45,7 @@ function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Location</h4>
-                  <p className="text-light-muted">San Francisco, California</p>
+                  <p className="text-light-muted">{userInfo.location}</p>
                 </div>
               </div>
               

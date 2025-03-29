@@ -4,6 +4,7 @@ import SocialLinks from '@/components/SocialLinks';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { goIntroCode } from '@/lib/data';
+import { userInfo } from '@/lib/env';
 
 function Home() {
   useEffect(() => {
@@ -17,10 +18,10 @@ function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.1s' }}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Hi, I'm <span className="text-secondary">Simone Martino</span>
+              Hi, I'm <span className="text-secondary">{userInfo.name}</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-light-muted mb-6">
-              Node.js Backend Developer
+              {userInfo.jobTitle}
             </h2>
             <p className="text-lg mb-8 max-w-xl">
               I build robust, scalable backend systems using Node.js and TypeScript. 
