@@ -33,6 +33,7 @@ function Skills() {
                   key={index}
                   name={skill.name}
                   percentage={skill.percentage}
+                  description={skill.description}
                 />
               ))}
             </div>
@@ -53,6 +54,7 @@ function Skills() {
                   key={index}
                   name={skill.name}
                   percentage={skill.percentage}
+                  description={skill.description}
                 />
               ))}
             </div>
@@ -71,6 +73,7 @@ function Skills() {
                 name={skill.name}
                 icon={<i className={skill.icon}></i>}
                 variant="icon"
+                description={skill.description}
               />
             ))}
           </div>

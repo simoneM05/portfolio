@@ -7,7 +7,6 @@ interface Developer {
   name: string;
   title: string;
   skills: string[];
-  yearsExp: number;
 }
 
 const app = express();
@@ -15,10 +14,9 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req: Request, res: Response) => {
   const me: Developer = {
-    name: "John Doe",
+    name: "Simone Martino",
     title: "Backend Developer",
     skills: ["Node.js", "TypeScript", "Express", "MongoDB"],
-    yearsExp: 5
   };
   
   res.json({
@@ -106,39 +104,104 @@ router.post('/users', validateUser, (req: Request, res: Response) => {
   res.status(201).json({ data: newUser });
 });`;
 
-// Node.js skills with proficiency levels
+// Node.js skills with proficiency levels and detailed descriptions
 export const nodeSkills = [
-  { name: "Express.js", percentage: 95 },
-  { name: "TypeScript", percentage: 90 },
-  { name: "RESTful APIs", percentage: 88 },
-  { name: "MongoDB", percentage: 90 },
-  { name: "Jest", percentage: 80 },
-  { name: "Redis", percentage: 75 },
+  { 
+    name: "Express.js", 
+    percentage: 95, 
+    description: "Extensive experience building RESTful APIs, middleware development, and application architecture with Express.js."
+  },
+  { 
+    name: "TypeScript", 
+    percentage: 90, 
+    description: "Strong expertise in type systems, interfaces, generics, and advanced TypeScript patterns for robust application development."
+  },
+  { 
+    name: "RESTful APIs", 
+    percentage: 88, 
+    description: "Designed and implemented scalable RESTful services following industry best practices and API standards."
+  },
+  { 
+    name: "MongoDB", 
+    percentage: 90, 
+    description: "Proficient in MongoDB schema design, aggregation pipeline, indexing strategies, and performance optimization."
+  },
+  { 
+    name: "Jest", 
+    percentage: 80, 
+    description: "Experience in unit, integration, and end-to-end testing using Jest and related testing libraries."
+  },
+  { 
+    name: "Redis", 
+    percentage: 75, 
+    description: "Knowledge of using Redis for caching, session management, rate limiting, and real-time data handling."
+  },
 ];
 
-// TypeScript skills with proficiency levels
+// TypeScript skills with proficiency levels and detailed descriptions
 export const tsSkills = [
-  { name: "Type Systems", percentage: 90 },
-  { name: "Interfaces", percentage: 95 },
-  { name: "Generics", percentage: 85 },
-  { name: "Decorators", percentage: 80 },
-  { name: "OOP Patterns", percentage: 90 },
-  { name: "API Design", percentage: 85 },
+  { 
+    name: "Type Systems", 
+    percentage: 90, 
+    description: "Deep understanding of TypeScript's structural type system, inference capabilities, and configuration options."
+  },
+  { 
+    name: "Interfaces", 
+    percentage: 95, 
+    description: "Expertise in designing clean, extensible interface hierarchies for maximum code reuse and maintainability."
+  },
+  { 
+    name: "Generics", 
+    percentage: 85, 
+    description: "Skilled in implementing flexible, reusable generic types and functions for type-safe components."
+  },
+  { 
+    name: "Decorators", 
+    percentage: 80, 
+    description: "Experience with TypeScript decorators for metadata reflection, dependency injection, and cross-cutting concerns."
+  },
+  { 
+    name: "OOP Patterns", 
+    percentage: 90, 
+    description: "Proficient in applying object-oriented design patterns like Factory, Singleton, Strategy, and Observer."
+  },
+  { 
+    name: "API Design", 
+    percentage: 85, 
+    description: "Strong focus on creating strongly-typed, self-documenting APIs with comprehensive error handling."
+  },
 ];
 
-// Additional skills with icons
+// Additional skills with icons and descriptions
 export const additionalSkills = [
-  { name: "SQL & NoSQL", icon: "fas fa-database" },
-  { name: "Docker", icon: "fab fa-docker" },
-  { name: "Microservices", icon: "fas fa-network-wired" },
-  { name: "Security", icon: "fas fa-shield-alt" },
+  { 
+    name: "SQL & NoSQL", 
+    icon: "fas fa-database",
+    description: "Experience with both relational (PostgreSQL, MySQL) and NoSQL (MongoDB, DynamoDB) database systems." 
+  },
+  { 
+    name: "Docker", 
+    icon: "fab fa-docker",
+    description: "Proficient in containerizing applications, creating Docker Compose stacks, and deployment strategies." 
+  },
+  { 
+    name: "Microservices", 
+    icon: "fas fa-network-wired",
+    description: "Designed and implemented microservice architectures with service discovery, API gateways, and event-driven patterns." 
+  },
+  { 
+    name: "Security", 
+    icon: "fas fa-shield-alt",
+    description: "Knowledge of web security best practices, auth implementations, OWASP guidelines, and secure coding principles." 
+  },
 ];
 
 // Projects data
 export const projects = [
   {
     title: "Microservice API Platform",
-    description: "A scalable microservice architecture built with Node.js, Express, and MongoDB. Features JWT authentication, rate limiting, and API documentation.",
+    description:
+      "A scalable microservice architecture built with Node.js, Express, and MongoDB. Features JWT authentication, rate limiting, and API documentation.",
     image: "microservice-api.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
@@ -147,7 +210,8 @@ export const projects = [
   },
   {
     title: "TypeScript REST API",
-    description: "A complete REST API built with TypeScript, Express, and MongoDB. Implements SOLID principles and advanced TypeScript features.",
+    description:
+      "A complete REST API built with TypeScript, Express, and MongoDB. Implements SOLID principles and advanced TypeScript features.",
     image: "typescript-api.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
@@ -156,7 +220,8 @@ export const projects = [
   },
   {
     title: "Serverless E-commerce API",
-    description: "Serverless e-commerce API built with Node.js. Includes product catalog, cart management, and order processing.",
+    description:
+      "Serverless e-commerce API built with Node.js. Includes product catalog, cart management, and order processing.",
     image: "serverless-ecommerce.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
@@ -165,7 +230,8 @@ export const projects = [
   },
   {
     title: "Real-time Chat Application",
-    description: "Full-stack chat application with real-time messaging using Socket.IO, Express, and React. Features user authentication and message history.",
+    description:
+      "Full-stack chat application with real-time messaging using Socket.IO, Express, and React. Features user authentication and message history.",
     image: "chat-app.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
@@ -174,7 +240,8 @@ export const projects = [
   },
   {
     title: "GraphQL API Gateway",
-    description: "A GraphQL API gateway that consolidates multiple microservices into a single, coherent API. Built with Apollo Server and Node.js.",
+    description:
+      "A GraphQL API gateway that consolidates multiple microservices into a single, coherent API. Built with Apollo Server and Node.js.",
     image: "graphql-gateway.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
@@ -183,7 +250,8 @@ export const projects = [
   },
   {
     title: "Express TypeScript Backend",
-    description: "Enterprise-grade backend application built with Express and TypeScript. Implements clean architecture, repository pattern, and comprehensive testing.",
+    description:
+      "Enterprise-grade backend application built with Express and TypeScript. Implements clean architecture, repository pattern, and comprehensive testing.",
     image: "express-app.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
