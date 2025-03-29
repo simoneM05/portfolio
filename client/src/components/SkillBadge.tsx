@@ -29,12 +29,12 @@ function SkillBadge({
         <Tooltip open={isOpen} onOpenChange={setIsOpen}>
           <TooltipTrigger asChild>
             <div
-              className="skill-badge text-center p-3 bg-primary/5 rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-1 hover:bg-primary/10 cursor-pointer"
+              className="skill-badge text-center p-2 bg-primary/5 rounded-md shadow transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/10 cursor-pointer"
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
             >
-              <div className="text-primary text-3xl mb-3">{icon}</div>
-              <p className="font-semibold text-white">{name}</p>
+              <div className="text-primary text-2xl mb-2">{icon}</div>
+              <p className="font-medium text-sm text-white">{name}</p>
             </div>
           </TooltipTrigger>
           {description && (
@@ -52,7 +52,7 @@ function SkillBadge({
       <Tooltip open={isOpen} onOpenChange={setIsOpen}>
         <TooltipTrigger asChild>
           <div
-            className="skill-badge flex flex-col items-center bg-secondary/5 p-3 rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-1 hover:bg-secondary/10 cursor-pointer"
+            className="skill-badge flex flex-col items-center bg-secondary/5 p-2 rounded-md shadow transition-all duration-200 hover:-translate-y-0.5 hover:bg-secondary/10 cursor-pointer"
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
