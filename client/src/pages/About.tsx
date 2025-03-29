@@ -25,7 +25,7 @@ function About() {
               and data processing pipelines.
             </p>
             <p className="text-light-muted mb-4">
-              After graduating with a degree in Computer Science from MIT, I worked at several tech companies 
+              After graduating with a degree in Computer Science, I worked at several tech companies 
               where I honed my skills in distributed systems design, cloud infrastructure, and performance optimization.
             </p>
             <p className="text-light-muted mb-6">
@@ -43,7 +43,7 @@ function About() {
             </div>
             
             <a 
-              href="/john-doe-resume.pdf" 
+              href="/simone-martino-resume.pdf" 
               className="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md font-medium transition-colors"
               onClick={(e) => {
                 e.preventDefault();

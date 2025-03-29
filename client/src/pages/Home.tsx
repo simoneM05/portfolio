@@ -14,10 +14,10 @@ function Home() {
   return (
     <section id="home" className="min-h-screen flex items-center py-16 pt-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.1s' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.1s' }}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Hi, I'm <span className="text-secondary">John Doe</span>
+              Hi, I'm <span className="text-secondary">Simone Martino</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-light-muted mb-6">
               Node.js Backend Developer
@@ -46,7 +46,7 @@ function Home() {
             </div>
           </div>
           
-          <div className="animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.3s' }}>
+          <div className="lg:col-span-7 animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.3s' }}>
             <div className="code-block font-mono text-sm p-4 overflow-auto rounded-md bg-[#1A1A1A] border-l-4 border-secondary">
               <SyntaxHighlighter
                 language="typescript"

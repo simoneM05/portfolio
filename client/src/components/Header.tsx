@@ -49,7 +49,7 @@ function Header() {
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold text-white flex items-center">
             <span className="text-secondary mr-2">&lt;</span>
-            John Doe
+            Simone Martino
             <span className="text-secondary ml-2">/&gt;</span>
           </Link>
           
