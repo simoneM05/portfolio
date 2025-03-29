@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SunIcon, MoonIcon } from 'lucide-react';
-import { Switch } from '@/components/ui/switch';
+import { Button } from '@/components/ui/button';
 
 interface ThemeToggleProps {
   className?: string;
@@ -9,29 +9,44 @@ interface ThemeToggleProps {
 function ThemeToggle({ className = '' }: ThemeToggleProps) {
   const [isDark, setIsDark] = useState(true);
   
+  // Imposta il tema iniziale in base alla classe del documento
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
+  }, []);
+  
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
     
     // Aggiorna le classi sul document
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    } else {
-      document.documentElement.classList.remove('light');
+    if (newIsDark) {
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     }
+    
+    // Salva la preferenza in localStorage
+    localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
   };
   
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <MoonIcon className="h-4 w-4 text-light" />
-      <Switch 
-        checked={!isDark}
-        onCheckedChange={toggleTheme}
-        aria-label={isDark ? "Passa al tema chiaro" : "Passa al tema scuro"}
-      />
-      <SunIcon className="h-4 w-4 text-light" />
-    </div>
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={toggleTheme}
+      className={`rounded-full bg-dark-card border-dark-border hover:bg-dark-border hover:text-secondary ${className}`}
+      aria-label={isDark ? "Passa al tema chiaro" : "Passa al tema scuro"}
+      title={isDark ? "Passa al tema chiaro" : "Passa al tema scuro"}
+    >
+      {isDark ? (
+        <SunIcon className="h-5 w-5 text-light" />
+      ) : (
+        <MoonIcon className="h-5 w-5 text-light" />
+      )}
+    </Button>
   );
 }
 

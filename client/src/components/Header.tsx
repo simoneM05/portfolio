@@ -77,7 +77,7 @@ function Header() {
                 </li>
               ))}
             </ul>
-            <ThemeToggle className="ml-4" />
+            <ThemeToggle className="ml-6" />
           </div>
         </nav>
         
