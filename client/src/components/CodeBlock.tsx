@@ -42,12 +42,14 @@ function CodeBlock({ language, code, className = '', maxHeight = '300px' }: Code
       )}
       
       {code.split('\n').length > 10 && (
-        <button 
-          onClick={toggleExpand}
-          className="absolute bottom-2 right-2 text-xs px-2 py-1 bg-dark-card text-light rounded hover:bg-dark-border transition-colors z-10"
-        >
-          {expanded ? 'Mostra meno' : 'Mostra tutto'}
-        </button>
+        <div className="flex justify-end mt-4">
+          <button 
+            onClick={toggleExpand}
+            className="text-xs px-3 py-1.5 bg-dark-card text-light rounded hover:bg-dark-border transition-colors z-10"
+          >
+            {expanded ? 'Mostra meno' : 'Mostra tutto'}
+          </button>
+        </div>
       )}
     </div>
   );
