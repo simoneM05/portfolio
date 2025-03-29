@@ -1,0 +1,22 @@
+{
+  "user": {
+    "name": "Simone Martino",
+    "jobTitle": "Node.js Backend Developer",
+    "email": "simonemartino05@gmail.com",
+    "phone": "+39 351 924 4276",
+    "location": "Napoli, Italia",
+    "github": "https://github.com/simoneM",
+    "linkedin": "https://www.linkedin.com/in/simonemartino",
+    "twitter": "https://twitter.com/simonemartino"
+  },
+  "portfolio": {
+    "title": "Simone Martino | Node.js Developer",
+    "description": "Backend developer specializzato in Node.js e TypeScript",
+    "yearsExperience": 0,
+    "projectsCompleted": 4,
+    "openSourceContributions": 0
+  },
+  "project": {
+    "defaultImage": "project-thumbnail.jpg"
+  }
+}
