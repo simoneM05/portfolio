@@ -19,10 +19,10 @@ function Home() {
               Hi, I'm <span className="text-secondary">John Doe</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-light-muted mb-6">
-              Backend Developer
+              Node.js Backend Developer
             </h2>
             <p className="text-lg mb-8 max-w-xl">
-              I build robust, scalable backend systems using Node.js and Go. 
+              I build robust, scalable backend systems using Node.js and TypeScript. 
               Specialized in API development, microservices architecture, and 
               high-performance computing solutions.
             </p>
@@ -46,7 +46,7 @@ function Home() {
           </div>
           
           <div className="animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.3s' }}>
-            <CodeBlock language="go" code={goIntroCode} />
+            <CodeBlock language="typescript" code={goIntroCode} />
           </div>
         </div>
       </div>

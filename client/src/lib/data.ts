@@ -1,97 +1,105 @@
 // Code snippets for syntax highlighting
-export const goIntroCode = `package main
+export const goIntroCode = `// TypeScript Node.js code example
+import express from 'express';
+import { Request, Response } from 'express';
 
-import (
-    "fmt"
-)
-
-type Developer struct {
-    Name     string
-    Title    string
-    Skills   []string
-    YearsExp int
+interface Developer {
+  name: string;
+  title: string;
+  skills: string[];
+  yearsExp: number;
 }
 
-func main() {
-    me := Developer{
-        Name:     "John Doe",
-        Title:    "Backend Developer",
-        Skills:   []string{"Go", "Node.js", "Docker", "Kubernetes"},
-        YearsExp: 8,
-    }
-    
-    fmt.Println("Welcome to my portfolio!")
-    fmt.Printf("I'm %s, a %s with %d years of experience.\\n",
-        me.Name, me.Title, me.YearsExp)
-}`;
-
-export const nodeCodeSnippet = `const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/api/data', async (req, res) => {
+app.get('/', (req: Request, res: Response) => {
+  const me: Developer = {
+    name: "John Doe",
+    title: "Backend Developer",
+    skills: ["Node.js", "TypeScript", "Express", "MongoDB"],
+    yearsExp: 5
+  };
+  
+  res.json({
+    message: "Welcome to my portfolio!",
+    developer: me
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(\`Server running at http://localhost:\${PORT}\`);
+});`;
+
+export const nodeCodeSnippet = `import express from 'express';
+import { Request, Response } from 'express';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/api/data', async (req: Request, res: Response) => {
   try {
     const data = await fetchData();
     res.json({ success: true, data });
   } catch (error) {
     res.status(500).json({ 
       success: false, 
-      error: error.message 
+      error: error instanceof Error ? error.message : 'Unknown error'
     });
   }
-});`;
+});
 
-export const goCodeSnippet = `package main
+async function fetchData() {
+  // Access database or external API
+  return { items: ['item1', 'item2'] };
+}`;
 
-import (
-    "net/http"
-    
-    "github.com/gin-gonic/gin"
-)
+export const typescriptCodeSnippet = `// TypeScript REST API Controller
+import { Controller, Get, Post, Body } from '@nestjs/common';
+import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { User } from './interfaces/user.interface';
 
-func main() {
-    router := gin.Default()
-    
-    router.GET("/api/users", getUsers)
-    router.POST("/api/users", createUser)
-    
-    router.Run(":8080")
-}
+@Controller('users')
+export class UserController {
+  constructor(private readonly userService: UserService) {}
 
-func getUsers(c *gin.Context) {
-    c.JSON(http.StatusOK, gin.H{
-        "status": "success",
-        "data":   users,
-    })
+  @Get()
+  async findAll(): Promise<User[]> {
+    return this.userService.findAll();
+  }
+
+  @Post()
+  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return this.userService.create(createUserDto);
+  }
 }`;
 
 // Node.js skills with proficiency levels
 export const nodeSkills = [
   { name: "Express.js", percentage: 95 },
-  { name: "NestJS", percentage: 90 },
-  { name: "GraphQL", percentage: 85 },
+  { name: "TypeScript", percentage: 90 },
+  { name: "NestJS", percentage: 85 },
   { name: "MongoDB", percentage: 90 },
   { name: "Jest", percentage: 80 },
   { name: "Redis", percentage: 75 },
 ];
 
-// Go skills with proficiency levels
-export const goSkills = [
-  { name: "Gin", percentage: 90 },
-  { name: "gRPC", percentage: 85 },
-  { name: "PostgreSQL", percentage: 90 },
-  { name: "Docker", percentage: 95 },
-  { name: "Testing", percentage: 80 },
-  { name: "Kubernetes", percentage: 75 },
+// TypeScript skills with proficiency levels
+export const tsSkills = [
+  { name: "Type Systems", percentage: 90 },
+  { name: "Interfaces", percentage: 95 },
+  { name: "Generics", percentage: 85 },
+  { name: "Decorators", percentage: 80 },
+  { name: "OOP Patterns", percentage: 90 },
+  { name: "API Design", percentage: 85 },
 ];
 
 // Additional skills with icons
 export const additionalSkills = [
   { name: "SQL & NoSQL", icon: "fas fa-database" },
-  { name: "AWS", icon: "fas fa-cloud" },
   { name: "Docker", icon: "fab fa-docker" },
   { name: "Microservices", icon: "fas fa-network-wired" },
-  { name: "CI/CD", icon: "fas fa-server" },
   { name: "Security", icon: "fas fa-shield-alt" },
 ];
 
@@ -107,31 +115,31 @@ export const projects = [
     category: "nodejs" as const,
   },
   {
-    title: "Real-time Data Pipeline",
-    description: "High-performance data processing pipeline built with Go. Handles over 10,000 events per second with minimal latency.",
-    image: "data-pipeline.jpg",
+    title: "TypeScript REST API",
+    description: "A complete REST API built with TypeScript, Express, and MongoDB. Implements SOLID principles and advanced TypeScript features.",
+    image: "typescript-api.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
-    technologies: ["Go", "Kafka", "PostgreSQL", "gRPC"],
-    category: "go" as const,
-  },
-  {
-    title: "Serverless E-commerce API",
-    description: "Serverless e-commerce API built with AWS Lambda and Node.js. Includes product catalog, cart management, and order processing.",
-    image: "serverless-ecommerce.jpg",
-    demoLink: "https://github.com/",
-    codeLink: "https://github.com/",
-    technologies: ["AWS Lambda", "DynamoDB", "API Gateway", "Serverless"],
+    technologies: ["TypeScript", "Express", "MongoDB", "Jest"],
     category: "nodejs" as const,
   },
   {
-    title: "Kubernetes Monitoring Tool",
-    description: "A Kubernetes monitoring tool built with Go. Provides real-time metrics, alerts, and visualization of cluster performance.",
-    image: "k8s-monitoring.jpg",
+    title: "Serverless E-commerce API",
+    description: "Serverless e-commerce API built with Node.js. Includes product catalog, cart management, and order processing.",
+    image: "serverless-ecommerce.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
-    technologies: ["Go", "Kubernetes", "Prometheus", "Grafana"],
-    category: "go" as const,
+    technologies: ["Node.js", "Express", "MongoDB", "Redis"],
+    category: "nodejs" as const,
+  },
+  {
+    title: "Real-time Chat Application",
+    description: "Full-stack chat application with real-time messaging using Socket.IO, Express, and React. Features user authentication and message history.",
+    image: "chat-app.jpg",
+    demoLink: "https://github.com/",
+    codeLink: "https://github.com/",
+    technologies: ["Socket.IO", "Express", "React", "MongoDB"],
+    category: "nodejs" as const,
   },
   {
     title: "GraphQL API Gateway",
@@ -143,12 +151,12 @@ export const projects = [
     category: "nodejs" as const,
   },
   {
-    title: "Blockchain Integration API",
-    description: "An API for integrating blockchain technologies into existing applications. Built with Go and supports multiple blockchain networks.",
-    image: "blockchain-api.jpg",
+    title: "NestJS Backend Application",
+    description: "Enterprise-grade backend application built with NestJS. Implements dependency injection, modular architecture, and comprehensive testing.",
+    image: "nestjs-app.jpg",
     demoLink: "https://github.com/",
     codeLink: "https://github.com/",
-    technologies: ["Go", "Ethereum", "Solidity", "Web3"],
-    category: "go" as const,
+    technologies: ["NestJS", "TypeScript", "PostgreSQL", "Docker"],
+    category: "nodejs" as const,
   },
 ];

@@ -7,10 +7,10 @@ function About() {
   }, []);
 
   const stats = [
-    { value: '8+', label: 'Years of Experience' },
-    { value: '50+', label: 'Projects Completed' },
-    { value: '12+', label: 'Open Source Contributions' },
-    { value: '5+', label: 'Tech Conference Talks' },
+    { value: '5+', label: 'Years of Experience' },
+    { value: '30+', label: 'Projects Completed' },
+    { value: '8+', label: 'Open Source Contributions' },
+    { value: '3+', label: 'Tech Conference Talks' },
   ];
 
   return (
@@ -20,8 +20,8 @@ function About() {
           <div className="order-2 lg:order-1">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
             <p className="text-light-muted mb-4">
-              I'm a passionate backend developer with 8+ years of experience building robust, scalable systems. 
-              My expertise lies in Node.js and Go, with a focus on creating high-performance APIs, microservices, 
+              I'm a passionate backend developer with 5+ years of experience building robust, scalable systems. 
+              My expertise lies in Node.js and TypeScript, with a focus on creating high-performance APIs, microservices, 
               and data processing pipelines.
             </p>
             <p className="text-light-muted mb-4">

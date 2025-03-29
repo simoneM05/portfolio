@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import CodeBlock from '@/components/CodeBlock';
 import SkillBadge from '@/components/SkillBadge';
-import { nodeSkills, goSkills, additionalSkills, nodeCodeSnippet, goCodeSnippet } from '@/lib/data';
+import { nodeSkills, tsSkills, additionalSkills, nodeCodeSnippet, typescriptCodeSnippet } from '@/lib/data';
 
 function Skills() {
   useEffect(() => {
@@ -15,7 +15,7 @@ function Skills() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
           <p className="text-light-muted max-w-2xl mx-auto">
-            I specialize in backend development with a focus on building high-performance, scalable systems.
+            I specialize in backend development with a focus on building high-performance, scalable systems using Node.js and TypeScript.
           </p>
         </div>
         
@@ -37,18 +37,18 @@ function Skills() {
               ))}
             </div>
             
-            <CodeBlock language="javascript" code={nodeCodeSnippet} />
+            <CodeBlock language="typescript" code={nodeCodeSnippet} />
           </div>
           
-          {/* Go Skills */}
+          {/* TypeScript Skills */}
           <div className="bg-dark rounded-lg p-6 border border-dark-border">
             <div className="flex items-center mb-6">
-              <i className="fab fa-golang text-4xl text-blue-400 mr-4"></i>
-              <h3 className="text-2xl font-semibold">Go Expertise</h3>
+              <i className="fab fa-js text-4xl text-blue-400 mr-4"></i>
+              <h3 className="text-2xl font-semibold">TypeScript Expertise</h3>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-              {goSkills.map((skill, index) => (
+              {tsSkills.map((skill, index) => (
                 <SkillBadge 
                   key={index}
                   name={skill.name}
@@ -57,7 +57,7 @@ function Skills() {
               ))}
             </div>
             
-            <CodeBlock language="go" code={goCodeSnippet} />
+            <CodeBlock language="typescript" code={typescriptCodeSnippet} />
           </div>
         </div>
         

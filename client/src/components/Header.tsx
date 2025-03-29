@@ -75,19 +75,6 @@ function Header() {
               </li>
             ))}
           </ul>
-          
-          {/* Resume button */}
-          <a 
-            href="/john-doe-resume.pdf" 
-            className="hidden md:block bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              // In a real app, this would download the resume
-              alert('Resume download would start here');
-            }}
-          >
-            Resume <i className="fas fa-download ml-2"></i>
-          </a>
         </nav>
         
         {/* Mobile Navigation */}
@@ -103,19 +90,7 @@ function Header() {
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
-              <a 
-                href="/john-doe-resume.pdf" 
-                className="inline-block bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // In a real app, this would download the resume
-                  alert('Resume download would start here');
-                }}
-              >
-                Resume <i className="fas fa-download ml-2"></i>
-              </a>
-            </li>
+
           </ul>
         </div>
       </div>
