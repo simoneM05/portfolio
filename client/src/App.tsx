@@ -14,7 +14,7 @@ import Contact from "@/pages/Contact";
 
 function Router() {
   return (
-    <div className="min-h-screen flex flex-col bg-dark">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
         <Switch>

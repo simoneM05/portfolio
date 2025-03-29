@@ -5,15 +5,15 @@ interface ThemeToggleProps {
 }
 
 function ThemeToggle({ className = '' }: ThemeToggleProps) {
-  // Temporarily disabled theme toggle
+  // Temporarily we're using dark theme only
   return (
-    <button 
-      className={`p-2 rounded-md text-light hover:bg-dark-card transition-colors ${className}`}
-      aria-label="Light/Dark mode toggle (disabled)"
-      disabled
+    <div 
+      className={`p-2 rounded-md text-light ${className}`}
+      aria-label="Dark mode active"
+      title="Tema scuro attivo"
     >
       <SunIcon className="h-5 w-5" />
-    </button>
+    </div>
   );
 }
 
