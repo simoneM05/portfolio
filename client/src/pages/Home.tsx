@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
 import SocialLinks from '@/components/SocialLinks';
-import CodeBlock from '@/components/CodeBlock';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { goIntroCode } from '@/lib/data';
 
 function Home() {
@@ -46,7 +47,21 @@ function Home() {
           </div>
           
           <div className="animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.3s' }}>
-            <CodeBlock language="typescript" code={goIntroCode} />
+            <div className="code-block font-mono text-sm p-4 overflow-auto rounded-md bg-[#1A1A1A] border-l-4 border-secondary">
+              <SyntaxHighlighter
+                language="typescript"
+                style={atomDark}
+                customStyle={{
+                  background: 'transparent',
+                  padding: 0,
+                  margin: 0,
+                  fontSize: '0.875rem',
+                }}
+                showLineNumbers={false}
+              >
+                {goIntroCode}
+              </SyntaxHighlighter>
+            </div>
           </div>
         </div>
       </div>
