@@ -18,5 +18,27 @@
   },
   "project": {
     "defaultImage": "project-thumbnail.jpg"
-  }
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "REST API E-commerce",
+      "description": "API RESTful per un e-commerce con autenticazione JWT, gestione prodotti e carrello",
+      "image": "ecommerce-api.jpg",
+      "demoLink": "https://api-ecommerce-demo.herokuapp.com",
+      "codeLink": "https://github.com/simoneM/ecommerce-api",
+      "technologies": ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
+      "category": "nodejs"
+    },
+    {
+      "id": 2,
+      "title": "Task Manager Microservices",
+      "description": "Applicazione di gestione attività con architettura a microservizi",
+      "image": "task-manager.jpg",
+      "demoLink": "https://task-manager-demo.netlify.app",
+      "codeLink": "https://github.com/simoneM/task-manager-microservices",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "RabbitMQ", "Docker Compose"],
+      "category": "nodejs"
+    }
+  ]
 }
