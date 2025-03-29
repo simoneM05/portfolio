@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import ThemeToggle from './ThemeToggle';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,23 +64,26 @@ function Header() {
           </button>
           
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link 
-                  href={item.path}
-                  className={`hover:text-secondary transition-colors ${isActive(item.path) ? 'text-secondary' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden md:flex items-center">
+            <ul className="flex space-x-8">
+              {navItems.map((item) => (
+                <li key={item.path}>
+                  <Link 
+                    href={item.path}
+                    className={`hover:text-secondary transition-colors ${isActive(item.path) ? 'text-secondary' : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle className="ml-8" />
+          </div>
         </nav>
         
         {/* Mobile Navigation */}
         <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col space-y-4 pt-4 pb-4 border-t border-dark-border mt-4">
+          <ul className="flex flex-col space-y-4 pt-4 pb-2 border-t border-dark-border mt-4">
             {navItems.map((item) => (
               <li key={item.path}>
                 <Link 
@@ -90,8 +94,11 @@ function Header() {
                 </Link>
               </li>
             ))}
-
           </ul>
+          <div className="flex justify-between items-center pt-2 pb-4">
+            <span className="text-sm text-light-muted">Toggle theme</span>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>
