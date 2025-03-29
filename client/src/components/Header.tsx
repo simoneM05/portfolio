@@ -45,7 +45,7 @@ function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-dark/90 backdrop-blur-sm z-50 border-b border-dark-border">
+    <header className={`fixed top-0 left-0 right-0 ${mobileMenuOpen ? 'bg-dark' : 'bg-dark/90 backdrop-blur-sm'} z-50 border-b border-dark-border transition-colors duration-300`}>
       <div className="container mx-auto px-4 md:px-6 py-4">
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold text-white flex items-center">
@@ -57,10 +57,10 @@ function Header() {
           {/* Mobile menu button */}
           <button 
             onClick={toggleMobileMenu}
-            className="md:hidden text-light"
+            className={`md:hidden ${mobileMenuOpen ? 'text-secondary' : 'text-light'} p-2 rounded-md transition-colors`}
             aria-label="Toggle menu"
           >
-            <i className="fas fa-bars text-xl"></i>
+            <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
           </button>
           
           {/* Desktop Navigation */}
@@ -80,18 +80,17 @@ function Header() {
         
         {/* Mobile Navigation */}
         <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col space-y-4 pt-4 pb-4 border-t border-dark-border mt-4">
+          <ul className="flex flex-col space-y-4 pt-4 pb-4 border-t border-dark-border mt-4 bg-dark rounded-md shadow-lg">
             {navItems.map((item) => (
               <li key={item.path}>
                 <Link 
                   href={item.path}
-                  className={`block py-2 hover:text-secondary transition-colors ${isActive(item.path) ? 'text-secondary' : ''}`}
+                  className={`block py-3 px-4 hover:text-secondary hover:bg-dark-surface transition-colors rounded-md ${isActive(item.path) ? 'text-secondary bg-dark-surface' : ''}`}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-
           </ul>
         </div>
       </div>
