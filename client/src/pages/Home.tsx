@@ -47,7 +47,7 @@ function Home() {
           </div>
           
           <div className="animate-[fadeIn_0.5s_ease-out_forwards]" style={{ animationDelay: '0.3s' }}>
-            <div className="code-block font-mono text-sm p-4 overflow-y-auto overflow-x-hidden whitespace-pre-wrap rounded-md bg-[#1A1A1A] border-l-4 border-secondary">
+            <div className="code-block font-mono text-sm p-4 overflow-auto rounded-md bg-[#1A1A1A] border-l-4 border-secondary">
               <SyntaxHighlighter
                 language="typescript"
                 style={atomDark}
@@ -56,9 +56,7 @@ function Home() {
                   padding: 0,
                   margin: 0,
                   fontSize: '0.875rem',
-                  wordBreak: 'break-word',
                 }}
-                wrapLines={true}
                 showLineNumbers={false}
               >
                 {goIntroCode}
