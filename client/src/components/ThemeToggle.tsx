@@ -1,48 +1,14 @@
-import { useState, useEffect } from 'react';
 import { SunIcon, MoonIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface ThemeToggleProps {
   className?: string;
 }
 
 function ThemeToggle({ className = '' }: ThemeToggleProps) {
-  const [isDark, setIsDark] = useState(true);
-  
-  // Imposta il tema iniziale in base alla classe del documento
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const isDarkMode = savedTheme !== 'light'; // default to dark
-    setIsDark(isDarkMode);
-    
-    // Assicuriamoci che la classe sia impostata correttamente
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-  
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    
-    console.log("Cambio tema:", newIsDark ? "dark" : "light");
-    
-    // Aggiorna le classi sul document
-    if (newIsDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    }
-    
-    // Salva la preferenza in localStorage
-    localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
-  };
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
   
   return (
     <Button
