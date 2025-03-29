@@ -29,7 +29,7 @@ function SkillBadge({
         <Tooltip open={isOpen} onOpenChange={setIsOpen}>
           <TooltipTrigger asChild>
             <div
-              className="skill-badge text-center p-3 bg-primary/10 rounded-lg border border-primary/30 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/15 cursor-pointer"
+              className="skill-badge text-center p-3 bg-primary/5 rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-1 hover:bg-primary/10 cursor-pointer"
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
             >
@@ -52,21 +52,13 @@ function SkillBadge({
       <Tooltip open={isOpen} onOpenChange={setIsOpen}>
         <TooltipTrigger asChild>
           <div
-            className="skill-badge flex flex-col items-center bg-secondary/10 p-4 rounded-lg border border-secondary/30 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-secondary/50 hover:bg-secondary/15 cursor-pointer"
+            className="skill-badge flex flex-col items-center bg-secondary/5 p-3 rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-1 hover:bg-secondary/10 cursor-pointer"
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
-            <span className="text-white font-semibold text-base mb-2">
+            <span className="text-white font-semibold text-base">
               {name}
             </span>
-            {percentage !== undefined && (
-              <div className="w-full bg-dark-border rounded-full h-3 mt-1">
-                <div
-                  className="bg-secondary h-3 rounded-full"
-                  style={{ width: `${percentage}%` }}
-                ></div>
-              </div>
-            )}
           </div>
         </TooltipTrigger>
         {description && (
