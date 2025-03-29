@@ -23,12 +23,12 @@ function SkillBadge({ name, percentage, icon, variant = 'default', description }
         <Tooltip open={isOpen} onOpenChange={setIsOpen}>
           <TooltipTrigger asChild>
             <div 
-              className="skill-badge text-center p-4 bg-dark-card rounded-lg border border-dark-border shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-secondary/50 cursor-pointer"
+              className="skill-badge text-center p-4 bg-primary/10 rounded-lg border border-primary/30 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/15 cursor-pointer"
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
             >
-              <div className="text-primary text-2xl mb-2">{icon}</div>
-              <p className="font-medium">{name}</p>
+              <div className="text-primary text-3xl mb-3">{icon}</div>
+              <p className="font-semibold text-white">{name}</p>
             </div>
           </TooltipTrigger>
           {description && (
@@ -46,15 +46,15 @@ function SkillBadge({ name, percentage, icon, variant = 'default', description }
       <Tooltip open={isOpen} onOpenChange={setIsOpen}>
         <TooltipTrigger asChild>
           <div 
-            className="skill-badge flex flex-col items-center bg-dark-card p-4 rounded-lg border border-dark-border shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-secondary/50 cursor-pointer"
+            className="skill-badge flex flex-col items-center bg-secondary/10 p-5 rounded-lg border border-secondary/30 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-secondary/50 hover:bg-secondary/15 cursor-pointer"
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
           >
-            <span className="text-secondary font-medium mb-3">{name}</span>
+            <span className="text-white font-semibold text-lg mb-3">{name}</span>
             {percentage !== undefined && (
-              <div className="w-full bg-dark-border rounded-full h-2.5">
+              <div className="w-full bg-dark-border rounded-full h-3 mt-1">
                 <div 
-                  className="bg-secondary h-2.5 rounded-full" 
+                  className="bg-secondary h-3 rounded-full" 
                   style={{ width: `${percentage}%` }}
                 ></div>
               </div>
