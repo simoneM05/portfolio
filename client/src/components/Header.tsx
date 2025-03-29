@@ -77,7 +77,7 @@ function Header() {
                 </li>
               ))}
             </ul>
-            <ThemeToggle className="ml-8" />
+            <ThemeToggle className="ml-4" />
           </div>
         </nav>
         
@@ -95,8 +95,7 @@ function Header() {
               </li>
             ))}
           </ul>
-          <div className="flex justify-between items-center pt-2 pb-4">
-            <span className="text-sm text-light-muted">Toggle theme</span>
+          <div className="flex justify-center items-center pt-2 pb-4">
             <ThemeToggle />
           </div>
         </div>
