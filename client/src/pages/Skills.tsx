@@ -37,7 +37,7 @@ function Skills() {
               ))}
             </div>
             
-            <CodeBlock language="typescript" code={nodeCodeSnippet} />
+            <CodeBlock language="typescript" code={nodeCodeSnippet} maxHeight="250px" />
           </div>
           
           {/* TypeScript Skills */}
@@ -57,7 +57,7 @@ function Skills() {
               ))}
             </div>
             
-            <CodeBlock language="typescript" code={typescriptCodeSnippet} />
+            <CodeBlock language="typescript" code={typescriptCodeSnippet} maxHeight="250px" />
           </div>
         </div>
         

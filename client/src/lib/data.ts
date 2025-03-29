@@ -54,9 +54,8 @@ async function fetchData() {
   return { items: ['item1', 'item2'] };
 }`;
 
-export const typescriptCodeSnippet = `// TypeScript Express API Controller
+export const typescriptCodeSnippet = `// TypeScript Express API with Type Safety
 import express, { Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
 
 // Define User interface
 interface User {
@@ -66,58 +65,46 @@ interface User {
   role: 'admin' | 'user';
 }
 
-// User repository (simulate database)
-class UserRepository {
-  private users: User[] = [];
-  private currentId = 1;
+// Type for creating a new user
+type CreateUserDto = Omit<User, 'id'>;
 
-  findAll(): User[] {
-    return this.users;
+// Simple middleware for type validation
+const validateUser = (req: Request, res: Response, next: Function) => {
+  const { name, email, role } = req.body;
+  
+  if (!name || typeof name !== 'string') {
+    return res.status(400).json({ error: 'Valid name is required' });
   }
-
-  findById(id: number): User | undefined {
-    return this.users.find(user => user.id === id);
+  
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Valid email is required' });
   }
-
-  create(userData: Omit<User, 'id'>): User {
-    const newUser = { ...userData, id: this.currentId++ };
-    this.users.push(newUser);
-    return newUser;
+  
+  if (role !== 'admin' && role !== 'user') {
+    return res.status(400).json({ error: 'Role must be admin or user' });
   }
-}
+  
+  next();
+};
 
-// Create router and repository
+// Create router
 const router = express.Router();
-const userRepo = new UserRepository();
+const users: User[] = [];
+let userId = 1;
 
-// GET /users - Get all users
-router.get('/users', (req: Request, res: Response) => {
-  const users = userRepo.findAll();
-  res.json({ success: true, data: users });
+// GET /users
+router.get('/users', (_req: Request, res: Response) => {
+  res.json({ data: users });
 });
 
-// POST /users - Create a new user
-router.post(
-  '/users',
-  [
-    body('name').isString().isLength({ min: 2 }),
-    body('email').isEmail(),
-    body('role').isIn(['admin', 'user'])
-  ],
-  (req: Request, res: Response) => {
-    const errors = validationResult(req);
-    
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ 
-        success: false, 
-        errors: errors.array() 
-      });
-    }
-    
-    const newUser = userRepo.create(req.body);
-    res.status(201).json({ success: true, data: newUser });
-  }
-);`;
+// POST /users
+router.post('/users', validateUser, (req: Request, res: Response) => {
+  const userData: CreateUserDto = req.body;
+  const newUser: User = { ...userData, id: userId++ };
+  
+  users.push(newUser);
+  res.status(201).json({ data: newUser });
+});`;
 
 // Node.js skills with proficiency levels
 export const nodeSkills = [
