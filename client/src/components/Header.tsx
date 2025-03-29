@@ -67,7 +67,7 @@ function Header() {
         
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-dark-border">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-sm border-b border-dark-border">
             <ul className="container mx-auto px-4 md:px-6 flex flex-col py-4">
               {navItems.map((item) => (
                 <li key={item.path}>
