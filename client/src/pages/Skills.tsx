@@ -21,13 +21,13 @@ function Skills() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Node.js Skills */}
-          <div className="bg-dark rounded-lg p-6 border border-dark-border">
-            <div className="flex items-center mb-6">
-              <i className="fab fa-node text-4xl text-green-500 mr-4"></i>
-              <h3 className="text-2xl font-semibold">Node.js Expertise</h3>
+          <div className="bg-dark rounded-lg p-8 border border-dark-border shadow-lg">
+            <div className="flex items-center mb-8">
+              <i className="fab fa-node text-5xl text-green-500 mr-4"></i>
+              <h3 className="text-2xl font-bold">Node.js Expertise</h3>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
               {nodeSkills.map((skill, index) => (
                 <SkillBadge 
                   key={index}
@@ -41,13 +41,13 @@ function Skills() {
           </div>
           
           {/* TypeScript Skills */}
-          <div className="bg-dark rounded-lg p-6 border border-dark-border">
-            <div className="flex items-center mb-6">
-              <i className="fab fa-js text-4xl text-blue-400 mr-4"></i>
-              <h3 className="text-2xl font-semibold">TypeScript Expertise</h3>
+          <div className="bg-dark rounded-lg p-8 border border-dark-border shadow-lg">
+            <div className="flex items-center mb-8">
+              <i className="fab fa-js text-5xl text-blue-400 mr-4"></i>
+              <h3 className="text-2xl font-bold">TypeScript Expertise</h3>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
               {tsSkills.map((skill, index) => (
                 <SkillBadge 
                   key={index}
@@ -62,9 +62,9 @@ function Skills() {
         </div>
         
         {/* Additional Skills */}
-        <div className="mt-12 bg-dark rounded-lg p-6 border border-dark-border">
-          <h3 className="text-xl font-semibold mb-6">Additional Skills</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="mt-16 bg-dark rounded-lg p-8 border border-dark-border shadow-lg">
+          <h3 className="text-2xl font-bold mb-8">Additional Skills</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {additionalSkills.map((skill, index) => (
               <SkillBadge 
                 key={index}
