@@ -6,27 +6,14 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
   
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
-    };
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [mobileMenuOpen]);
+  // Rimosso handleClickOutside che interferiva con la navigazione
   
   // Close mobile menu when location changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
 
-  const toggleMobileMenu = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
@@ -79,20 +66,22 @@ function Header() {
         </nav>
         
         {/* Mobile Navigation */}
-        <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col space-y-4 pt-4 pb-4 border-t border-dark-border mt-4 bg-dark rounded-md shadow-lg">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link 
-                  href={item.path}
-                  className={`block py-3 px-4 hover:text-secondary hover:bg-dark-surface transition-colors rounded-md ${isActive(item.path) ? 'text-secondary bg-dark-surface' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {mobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-dark">
+            <ul className="container mx-auto px-4 md:px-6 flex flex-col py-4">
+              {navItems.map((item) => (
+                <li key={item.path}>
+                  <Link 
+                    href={item.path}
+                    className={`block py-3 px-4 my-1 hover:text-secondary transition-colors ${isActive(item.path) ? 'text-secondary' : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </header>
   );
